@@ -1,0 +1,44 @@
+# Copyright (c) Arduino s.r.l. and/or its affiliated companies
+# SPDX-License-Identifier: Apache-2.0
+
+name: Scancode
+
+on: [pull_request]
+
+jobs:
+  verify-licenses:
+    runs-on: ubuntu-latest
+    name: Scan code for licenses
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
+        persist-credentials: false
+
+    - name: Extract new files
+      run: |
+        mkdir scancode-inputs
+        git fetch origin $GITHUB_BASE_REF
+        # copy all new files to a separate directory for scanning
+        for NEW_FILE in $(git diff --name-only --diff-filter=A origin/$GITHUB_BASE_REF..HEAD) ; do
+          mkdir -p $(dirname "scancode-inputs/$NEW_FILE")
+          cp "$NEW_FILE" "scancode-inputs/$NEW_FILE"
+        done
+
+    - name: Scan the code
+      id: scancode
+      uses: aboutcode-org/scancode-action@beta
+      with:
+        check-compliance: true
+        output-formats: json xlsx
+
+    - name: Get the report
+      uses: actions/download-artifact@v4
+      with:
+        name: scancode-outputs
+
+    - name: Process the report
+      run: |
+        # the following will error on missing licenses or compliance issues
+        extra/ci_license_checks.sh scancode-inputs/ results-*.json
