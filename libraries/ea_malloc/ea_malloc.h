@@ -1,7 +1,7 @@
 /*
-* Copyright © 2017 Embedded Artistry LLC.
-* License: MIT. See LICENSE file for details.
-*/
+ * Copyright © 2017 Embedded Artistry LLC.
+ * SPDX-License-Identifier: MIT
+ */
 
 #ifndef MALLOC_H_
 #define MALLOC_H_

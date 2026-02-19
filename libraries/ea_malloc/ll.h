@@ -1,6 +1,11 @@
 #ifndef LL_H__
 #define LL_H__
 
+/*
+ * Copyright © 2017 Embedded Artistry LLC.
+ * SPDX-License-Identifier: MIT
+ */
+
 #include <stdint.h>
 #include <stdlib.h> //size_t, NULL
 

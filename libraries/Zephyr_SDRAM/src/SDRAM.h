@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Arduino s.r.l. and/or its affiliated companies
+ *
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ */
+
 #ifndef __SDRAM_H
 #define __SDRAM_H
 

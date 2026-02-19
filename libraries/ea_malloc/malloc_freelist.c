@@ -1,6 +1,6 @@
 /*
  * Copyright © 2017 Embedded Artistry LLC.
- * License: MIT. See LICENSE file for details.
+ * SPDX-License-Identifier: MIT
  */
 
 #include <ll.h>
