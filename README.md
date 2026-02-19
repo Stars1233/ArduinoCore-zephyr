@@ -247,9 +247,38 @@ Remember to also install and/or update the officially published core in the IDE 
 
 ### Using the Core in the Arduino App Lab
 
-The Arduino App Lab currently relies on a specific FQBN in order to send
-board commands. To be able to use your custom core with the Arduino UNO Q,
-read [this guide](https://forum.arduino.cc/t/install-sources-built-zephyr-on-uno-q-for-applab/1429150/7).
+> [!WARNING] 
+> Arduino App Lab expects a hardcoded FQBN (`arduino:zephyr:unoq` for the UNO Q), so the [technique used for Arduino IDE/CLI](#using-the-core-in-arduino-idecli) **does not** work. A small workaround is required.
+
+1. Disable the release core
+
+```bash
+mv ~/.arduino15/packages/arduino/hardware/zephyr ~/.arduino15/packages/arduino/hardware/zephyr.disable
+```
+This ensures the installation of the development version of the core will be used instead of the release installation.
+
+2. Install your custom core
+
+Place your custom core in the following path:
+```bash
+~/Arduino/hardware/arduino/zephyr
+```
+
+3. Flash the new loader
+
+Build and flash the loader from your custom core to overwrite the release version.
+For example, on UNO Q:
+```bash
+arduino-cli burn-bootloader -b arduino:zephyr:unoq -P jlink
+```
+
+#### Revert to release core
+
+If you want to use the official core again, change the directory names so the one in `~/.arduino15` is `zephyr`, and the one in your sketchbook's hardware folder is `zephyr.disable`:
+```bash
+mv ~/.arduino15/packages/arduino/hardware/zephyr.disable ~/.arduino15/packages/arduino/hardware/zephyr
+mv ~/Arduino/hardware/arduino/zephyr ~/Arduino/hardware/arduino/zephyr.disable
+```
 
 ## 🚀 Adding a new target
 
