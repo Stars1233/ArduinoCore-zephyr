@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Arduino s.r.l. and/or its affiliated companies
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 &i2c4 {
 	status = "okay";
 	pinctrl-0 = <&i2c4_scl_pd12 &i2c4_sda_pd13>;

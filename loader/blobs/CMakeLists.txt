@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
 zephyr_interface_library_named(blobs)
 
 if (CONFIG_BOARD_ARDUINO_PORTENTA_C33)

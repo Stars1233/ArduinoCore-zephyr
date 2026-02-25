@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Arduino s.r.l. and/or its affiliated companies
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 &zephyr_udc0 {
 	board_cdc_acm_uart: board_cdc_acm_uart {
 		compatible = "zephyr,cdc-acm-uart";

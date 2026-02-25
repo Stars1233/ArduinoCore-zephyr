@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Copyright (c) Arduino s.r.l. and/or its affiliated companies
+# SPDX-License-Identifier: Apache-2.0
+
 # This script sets the micro of the Arduino UNO Q in RAM mode, and allow to flash it
 # with menu option flash=ram.
 # This is necessary because a flash in RAM mode is possible only if the micro

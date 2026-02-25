@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2025 Arduino SA
+// Copyright (c) Arduino s.r.l. and/or its affiliated companies
 
 package main
 

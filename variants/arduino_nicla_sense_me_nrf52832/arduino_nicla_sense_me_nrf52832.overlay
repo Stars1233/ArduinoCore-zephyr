@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Arduino s.r.l. and/or its affiliated companies
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 /delete-node/ &slot0_partition;
 /delete-node/ &slot1_partition;
 /delete-node/ &scratch_partition;

@@ -1,4 +1,10 @@
 /*
+ * Copyright (c) Arduino s.r.l. and/or its affiliated companies
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
  * Common filesystem configuration
  *
  * This file defines the following:
@@ -15,6 +21,7 @@
  * - /ota: (FAT) - OTA update partition
  * - /storage (LittleFS) - User data partition
  */
+
 &qspi_flash {
 	/delete-node/ partitions;
 	partitions {
