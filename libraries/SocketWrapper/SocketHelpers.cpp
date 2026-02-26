@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Arduino s.r.l. and/or its affiliated companies
+ *
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ */
+
 #include "SocketHelpers.h"
 
 #include <zephyr/logging/log.h>

@@ -1,3 +1,6 @@
+# Copyright (c) Arduino s.r.l. and/or its affiliated companies
+# SPDX-License-Identifier: Apache-2.0
+
 # get root dir for the project
 cmake_path(SET TOP_DIR NORMALIZE ${CMAKE_CURRENT_LIST_DIR}/..)
 

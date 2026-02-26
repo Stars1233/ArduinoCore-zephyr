@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Arduino s.r.l. and/or its affiliated companies
+ *
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ */
+
 #include "Ethernet.h"
 
 #if DT_HAS_COMPAT_STATUS_OKAY(ethernet_phy)

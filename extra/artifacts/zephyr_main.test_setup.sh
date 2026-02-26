@@ -1,4 +1,4 @@
-# Copyright ARDUINO SRL (https://www.arduino.cc)
+# Copyright (c) Arduino s.r.l. and/or its affiliated companies
 # SPDX-License-Identifier: Apache-2.0
 
 # This script is sourced from extra/ci_test_list.sh to provide

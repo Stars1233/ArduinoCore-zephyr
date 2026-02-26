@@ -1,5 +1,6 @@
 /*
- * Copyright 2025 Arduino SA
+ * Copyright (c) Arduino s.r.l. and/or its affiliated companies
+ * SPDX-License-Identifier: LGPL-3.0-or-later
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by

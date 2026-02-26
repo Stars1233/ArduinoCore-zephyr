@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Arduino s.r.l. and/or its affiliated companies
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 &usart6 {
 	status = "okay";
 	pinctrl-0 = <&usart6_tx_pg14 &usart6_rx_pg9>;

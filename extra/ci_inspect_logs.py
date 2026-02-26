@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright ARDUINO SRL (https://www.arduino.cc)
+# Copyright (c) Arduino s.r.l. and/or its affiliated companies
 # SPDX-License-Identifier: Apache-2.0
 
 # Script to analyze CI build and test logs, summarize results,

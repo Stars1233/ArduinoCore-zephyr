@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright ARDUINO SRL (https://www.arduino.cc)
+# Copyright (c) Arduino s.r.l. and/or its affiliated companies
 # SPDX-License-Identifier: Apache-2.0
 
 # Package the core into a distributable tar.bz2 archive.
