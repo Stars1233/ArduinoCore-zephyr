@@ -24,21 +24,25 @@ jobs:
         for NEW_FILE in $(git diff --name-only --diff-filter=A origin/$GITHUB_BASE_REF..HEAD) ; do
           mkdir -p $(dirname "scancode-inputs/$NEW_FILE")
           cp "$NEW_FILE" "scancode-inputs/$NEW_FILE"
+          echo 'NEW_FILES_FOUND=true' >> $GITHUB_ENV
         done
 
     - name: Scan the code
       id: scancode
       uses: aboutcode-org/scancode-action@beta
+      if: env.NEW_FILES_FOUND == 'true'
       with:
         check-compliance: true
         output-formats: json xlsx
 
     - name: Get the report
       uses: actions/download-artifact@v4
+      if: env.NEW_FILES_FOUND == 'true'
       with:
         name: scancode-outputs
 
     - name: Process the report
+      if: env.NEW_FILES_FOUND == 'true'
       run: |
         # the following will error on missing licenses or compliance issues
         extra/ci_license_checks.sh scancode-inputs/ results-*.json
