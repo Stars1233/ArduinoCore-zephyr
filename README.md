@@ -330,7 +330,7 @@ Contributions are always welcome. The preferred way to receive code contribution
 ## 📌 Upcoming features
 
 - [ ] USB: switch to `USB_DEVICE_STACK_NEXT` to support PluggableUSB
-- [ ] Relocate RODATA in flash to accommodate sketches with large assets
+- [x] Relocate RODATA in flash to accommodate sketches with large assets
 - [ ] Provide better error reporting for failed llext operations
 - [ ] Replace [`llext_exports.c`](/loader/llext_exports.c) with proper symbols generation (via includes)
 - [ ] Fix corner cases with `std::` includes (like `<iterator>`)
