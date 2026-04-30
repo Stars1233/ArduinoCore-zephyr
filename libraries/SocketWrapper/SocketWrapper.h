@@ -55,8 +55,8 @@ protected:
 		ssize_t bytes_read = fs_read(&file, cadata, file_size);
 		fs_close(&file);
 
-		if (bytes_read != file_size) {
-			k_free(cadata);
+		if (bytes_read != (ssize_t)file_size) {
+			free(cadata);
 			cadata = nullptr;
 			return false;
 		}
