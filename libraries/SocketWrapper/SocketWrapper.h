@@ -26,6 +26,7 @@ protected:
 
 #if defined(CONFIG_NET_SOCKETS_SOCKOPT_TLS) && defined(CONFIG_FILE_SYSTEM)
 	inline static char *cadata = nullptr;
+	inline static size_t cadata_len = 0;
 
 	bool loadCADataFromFS(const char *cert_path = "/wlan:/cacert.pem") {
 		struct fs_file_t file;
@@ -44,8 +45,8 @@ protected:
 
 		size_t file_size = entry.size;
 
-		// Allocate buffer for entire file
-		cadata = (char *)malloc(file_size);
+		// Allocate buffer for entire file (+1 for NULL terminator)
+		cadata = (char *)malloc(file_size + 1);
 		if (!cadata) {
 			fs_close(&file);
 			return false;
@@ -55,12 +56,14 @@ protected:
 		ssize_t bytes_read = fs_read(&file, cadata, file_size);
 		fs_close(&file);
 
-		if (bytes_read != file_size) {
-			k_free(cadata);
+		if (bytes_read != (ssize_t)file_size) {
+			free(cadata);
 			cadata = nullptr;
 			return false;
 		}
 
+		cadata[file_size] = '\0';
+		cadata_len = file_size + 1;
 		return true;
 	}
 #endif
@@ -193,8 +196,7 @@ public:
 		// Try to load builtin CA from filesystem (once)
 		if (cadata == nullptr && loadCADataFromFS()) {
 			// Successfully loaded, add with tag (ignore errors)
-			if (tls_credential_add(tag++, TLS_CREDENTIAL_CA_CERTIFICATE, cadata,
-								   strlen(cadata) + 1)) {
+			if (tls_credential_add(tag++, TLS_CREDENTIAL_CA_CERTIFICATE, cadata, cadata_len)) {
 				goto exit;
 			}
 		}
